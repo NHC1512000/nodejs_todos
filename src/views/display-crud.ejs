@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Users</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i< dataAllUser.length;i++) { %>
+                    <tr>
+                        <th scope="row">
+                            <%= dataAllUser[i].id %>
+                        </th>
+                        <td>
+                            <%= dataAllUser[i].email %>
+                        </td>
+                        <td>
+                            <%= dataAllUser[i].firstName %>
+                        </td>
+                        <td>
+                            <%= dataAllUser[i].lastName %>
+                        </td>
+                        <td>
+                            <%= dataAllUser[i].address %>
+                        </td>
+                        <td>
+                            <%= dataAllUser[i].phoneNumber %>
+                        </td>
+                        <td>
+                            <a role="button" class="btn btn-warning"
+                                href="/editCRUD?id=<%= dataAllUser[i].id %>">Edit</a>
+                            <a role="button" class="btn btn-danger"
+                                href="/deleteCRUD?id=<%= dataAllUser[i].id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
